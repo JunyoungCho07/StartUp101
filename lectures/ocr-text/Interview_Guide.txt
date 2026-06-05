@@ -1,0 +1,428 @@
+Linterview 수업 실습 가이드 | AI 페르소나 고객 개발 인터뷰
+
+
+                                           Linterview
+                                          수업 실습 가이드
+                                       AI 페르소나 고객 개발 인터뷰 실습
+
+
+   대상                  스타트업 수업 수강생
+
+   준비물                 노트북, Lovable 계정 (무료, 학생 계정 인증)
+
+
+ 1. 전체 시스템 구조
+실습에서 사용하는 기술 요소들이 어떻게 연결되는지 이해하면 실습이 훨씬 수월합니다.
+
+
+    🌐 여러분의 브라우저
+
+                         Lovable로 만든 React 앱 | [프로필 탐색] [우리 팀 DB] [인터뷰 화면]
+
+
+                                                   ↓ API 호출
+
+
+    🗄️ Supabase (공용 서버)
+
+      Database                              Edge Functions
+      • profiles (2,803개 프로필)               • search-personas → HuggingFace 검색
+      • clusters (50개 클러스터)                 • save-to-team → 팀 DB 저장
+      • team_profiles (팀 데이터)               • conduct-interview → AI 인터뷰 진행
+
+
+                                                ↓ 외부 API 호출
+
+
+    🤗 HuggingFace Dataset API                                 ✨ Gemini API (Google AI)
+    100만 한국인 프로필 데이터                                          페르소나 응답 생성
+    (nvidia/Nemotron-Personas-Korea)                          대화 맥락 유지
+
+
+기술 요소 설명
+
+                            여러분이 보고 클릭하는 화면입니다. Lovable이 AI로 코드를 자동 생성해줍니다. 버튼 클릭, 화
+ 🖥️ React 앱 (Lovable)
+                            면 전환, 데이터 표시를 담당합니다.
+
+
+                              페르소나 프로필 데이터와 팀별 인터뷰 대상 목록이 저장되는 공용 데이터베이스입니다. 교수님
+ 🗄️ Supabase Database
+                              이 미리 2,803개 프로필을 적재해 두었습니다.
+
+
+                         서버에서 실행되는 함수들입니다. API 키 같은 민감한 정보를 서버에서만 관리하고, 외부 서비
+ ⚡ Edge Functions
+                         스(HuggingFace, Gemini)를 안전하게 호출합니다.
+
+
+                        NVIDIA가 공개한 한국인 100만 프로필 데이터셋입니다. 조건에 맞는 추가 프로필을 검색할 때
+ 🤗 HuggingFace API
+                        사용합니다. (과제에서 활용)
+
+
+                       Google의 AI 모델입니다. 페르소나의 배경 정보를 받아서 실제 그 사람처럼 대화하는 역
+ ✨ Gemini API
+                       할을 합니다.
+
+
+ 2. 수업 전 교수 준비 사항 (완료)
+
+✅ Supabase 공용 DB 구축
+     profiles (2,803개 프로필) · clusters (50개 클러스터) · team_profiles
+
+✅ Edge Function 3개 배포
+     search-personas · save-to-team · conduct-interview
+
+✅ 단계별 Remix 앱 준비
+     1단계 완성 앱 (실습 시작점) · 2단계 · 3단계 완성 앱 (에러 대비)
+
+수업 당일 칠판/슬라이드에 게시할 정보
+
+ Supabase URL:      https://bcyzcilxzllikbdszbwp.supabase.co
+ Publishable Key: [수업 전 별도 문서로 공유]
+
+ 세션 코드:      marketing-2026
+
+ 팀 코드:       1팀 → team-01      2팀 → team-02       3팀 → team-03
+              4팀 → team-04      5팀 → team-05
+
+ 1단계 Remix 링크:
+ https://lovable.dev/projects/9ac50540-0192-4a4c-bcd8-969ebee728de
+
+
+ 3. 수업 타임라인
+ #    내용                                                              비고
+
+ 1     수업 소개 + 기술 구조 설명                                               본 가이드 1번 설명
+
+ 2     Lovable 접속 + 1단계 앱 Remix                                       학생 개별 진행
+
+ 3     1단계 앱 탐색 (프로필 검색/상세)                                           자유 탐색
+
+ 4     2단계 구현 (팀 DB 저장 기능)                                            프롬프트 입력
+
+ 5     2단계 확인 + 오류 수정                                                 에러 대비 Remix 활용
+
+ 6     휴식
+
+ 7     3단계 구현 (AI 인터뷰 기능)                                             프롬프트 입력
+
+ 8     3단계 확인 + 오류 수정                                                 에러 대비 Remix 활용
+
+ 9     팀별 인터뷰 실습                                                      실제 인터뷰 진행
+
+ 10   팀별 발표 + 과제 안내
+
+
+ 4. 실습 단계별 가이드
+STEP 0 — Lovable 접속 및 1단계 앱 Remix
+순서:
+
+1. lovable.dev 접속 후 로그인
+2. 아래 링크 클릭 → "Remix this project" 버튼 클릭
+3. 본인 계정에 복사본이 생성됐는지 확인
+4. 앱이 열리면 프로필 목록이 표시되는지 확인
+
+ https://lovable.dev/projects/9ac50540-0192-4a4c-bcd8-969ebee728de
+
+✅ 완료 확인:
+
+☐ 프로필 카드 목록이 표시된다
+☐ 필터(직군/나이대/성별)가 작동한다
+☐ 검색창에 키워드 입력 시 결과가 바뀐다
+☐ "상세보기" 클릭 시 상세 화면이 나온다
+☐ 내러티브 탭(종합/직업/커리어 등)이 전환된다
+
+
+ 📌 참고 — 1단계 앱 생성에 사용한 Lovable 프롬프트
+ Remix로 바로 시작하지만, 아래 프롬프트로 1단계 앱이 어떻게 만들어졌는지 참고하세요.
+
+
+ 📋 1단계 앱 생성 프롬프트 (참고용)
+
+ 한국어 React 앱을 만들어줘.
+ 앱 이름: Linterview — 페르소나 인터뷰
+
+
+ [Supabase 연결 정보]
+ URL: https://bcyzcilxzllikbdszbwp.supabase.co
+ Publishable Key: [Publishable Key 입력]
+
+
+ [화면 1: 프로필 목록]
+ 상단 헤더:
+ - 로고 텍스트 "Linterview"
+ - 부제 "AI 페르소나 고객 인터뷰"
+
+
+ 필터 영역:
+ - 직군 드롭다운:
+  전체 / IT·기술직 / 사무직·화이트칼라 /
+  전문직 / 자영업·소상공인 / 대학생·취준생 / 전업주부·서비스직
+ - 나이대 드롭다운: 전체 / 20대 / 30대 / 40대 / 50대 / 60대+
+ - 성별 버튼: 전체 / 여성 / 남성
+ - 키워드 검색창 (placeholder: "직업, 관심사, 가치관으로 검색")
+ - 검색 버튼
+
+
+ 프로필 카드 목록 (그리드, 20개씩):
+ 각 카드:
+ - DiceBear 아바타 (SVG, uuid를 seed로)
+  여성(sex="여자"): https://api.dicebear.com/7.x/lorelei/svg?seed={uuid}
+  남성(sex="남자"): https://api.dicebear.com/7.x/adventurer/svg?seed={uuid}
+ - 이름 (name 필드), 나이 / 성별, 직업 (occupation)
+ - "상세보기" 버튼
+
+
+ 페이지네이션 (이전/다음)
+
+
+ [화면 2: 프로필 상세]
+ 좌측: 아바타(크게), 이름, 나이, 성별, 직업, 지역, 학력, 가족유형
+ 우측 탭 7개:
+  종합(persona) / 직업(professional_persona) /
+  커리어(career_goals_and_ambitions) / 취미(hobbies_and_interests) /
+  가족(family_persona) / 문화(cultural_background) / 기술(skills_and_expertise)
+ 하단: "목록으로" 버튼, "인터뷰하기" 버튼 (파란색, 아직 기능 없음)
+
+
+ [Supabase 쿼리]
+ 테이블: profiles
+ JOIN: persona_clusters → clusters (name, category)
+ 필터링: occupation ILIKE '%{키워드}%', age 범위, sex 필터,
+         persona 또는 occupation ILIKE '%{키워드}%'
+ 정렬: age ASC, 페이지네이션: 20개씩
+
+
+STEP 1 — 2단계 기능 추가 (팀 DB 저장)
+이 단계에서 구현하는 기능:
+
+
+                                           save-to-team                       Supabase
+                              →                                  →
+              👆
+           버튼 클릭                           Edge Function                     team_profiles
+
+
+                        팀 코드(session_id + team_id)로 데이터가 자동 분리되어 저장됩니다
+
+Lovable 프롬프트 입력:
+
+ ✏️ 아래 내용을 Lovable 입력창에 그대로 붙여넣으세요
+
+ 기존 앱에 아래 기능을 추가해줘.
+
+
+ [팀 접속 화면] (앱 시작 시 최초 1회)
+ - 세션 코드 입력창 (placeholder: "세션 코드 입력")
+ - 팀 코드 입력창 (placeholder: "팀 코드 입력")
+ - 이름 입력창 (placeholder: "이름 입력")
+ - "시작하기" 버튼
+ - 입력값을 localStorage에 저장해서 앱 전체에서 유지
+
+
+ [프로필 상세 화면 수정]
+ - "팀 DB에 추가" 버튼 추가 (초록색)
+ - 클릭 시 Edge Function 호출:
+   URL: https://bcyzcilxzllikbdszbwp.supabase.co/functions/v1/save-to-team
+   Method: POST
+   Headers: { "Content-Type": "application/json",
+              "Authorization": "Bearer [Publishable Key 입력]" }
+   Body: { "persona_uuid": 현재 프로필 uuid,
+           "session_id": localStorage의 세션코드,
+           "team_id": localStorage의 팀코드,
+           "added_by": localStorage의 이름,
+           "source": "supabase" }
+ - 성공 시 초록색 토스트 메시지 "팀 DB에 추가됐습니다"
+ - 이미 추가된 프로필은 버튼을 "추가됨"으로 변경 후 비활성화
+
+
+ [화면 탭 추가]
+ 상단에 탭 2개: "프로필 탐색" (기존) / "우리 팀 DB" (신규)
+
+
+ [우리 팀 DB 화면]
+ - session_id + team_id 기준 team_profiles 테이블 조회
+ - 추가한 프로필 카드 목록 표시 (메모 입력, 삭제 버튼 포함)
+
+
+ Supabase URL: https://bcyzcilxzllikbdszbwp.supabase.co
+
+
+ 🎨 팀별로 수정 가능한 부분: 버튼 색상 · 카드 레이아웃 스타일 · 토스트 메시지 문구
+
+앱 시작 시 입력 정보:
+
+ 세션 코드: marketing-2026
+ 팀 코드:     team-01   (본인 팀 번호 입력)
+ 이름:       홍길동       (본인 이름 입력)
+
+✅ 완료 확인:
+
+☐ 앱 시작 시 팀 접속 화면이 나온다
+☐ 세션코드/팀코드/이름 입력 후 "시작하기" 클릭된다
+☐ 상단 우측에 이름 · 팀코드가 표시된다
+☐ 프로필 상세에 "팀 DB에 추가" 버튼이 있다
+☐ 버튼 클릭 시 토스트 메시지가 나온다
+☐ "우리 팀 DB" 탭에 추가한 프로필이 보인다
+
+ 🚨 에러 발생 시: 2단계 완성 앱 Remix 링크로 이동
+ https://lovable.dev/projects/8b23602e-4382-409a-89e7-d717cd54d80c
+
+
+STEP 2 — 3단계 기능 추가 (AI 인터뷰)
+이 단계에서 구현하는 기능:
+
+
+       💬 사용자                conduct-interview                ✨ Gemini API       💬 페르소나
+       질문 입력
+                      →       Edge Function
+                                                  →               대화 생성
+                                                                            →   응답 표시
+
+
+                           전체 대화 히스토리가 매 요청마다 포함되어 맥락이 유지됩니다
+
+Lovable 프롬프트 입력:
+
+ ✏️ 아래 내용을 Lovable 입력창에 그대로 붙여넣으세요
+
+ 기존 앱에 AI 인터뷰 채팅 기능을 추가해줘.
+
+
+ [인터뷰 화면] - 프로필 상세의 "인터뷰하기" 버튼 클릭 시 전환
+
+
+ 상단 헤더: 페르소나 아바타(작게) + 이름 + 직업 + "인터뷰 종료" 버튼
+
+
+ 채팅 영역 (카카오톡 스타일):
+ - 페르소나 말풍선: 왼쪽, 회색 배경
+ - 사용자 말풍선: 오른쪽, 파란 배경
+ - 시간 표시, 스크롤 자동 하단 이동
+
+
+ 대화 히스토리 관리:
+ - const [messages, setMessages] = useState([])
+ - 인터뷰 시작 시 첫 인사말 자동 생성
+ - 메시지 전송 시 전체 히스토리 포함해서 Edge Function 호출
+
+
+ Edge Function 호출:
+ URL: https://bcyzcilxzllikbdszbwp.supabase.co/functions/v1/conduct-interview
+ Method: POST
+ Headers: { "Content-Type": "application/json",
+            "Authorization": "Bearer [Publishable Key 입력]" }
+ Body: { "persona_uuid": 현재 프로필 uuid,
+         "messages": [...전체 대화 히스토리] }
+
+
+ 응답 처리: data.reply 필드에서 응답 텍스트 읽기
+
+
+ 하단 입력창: 텍스트 입력창 + 전송 버튼 + Enter 키 전송 + 로딩 애니메이션
+
+
+ 인터뷰 종료: 확인 모달 후 프로필 상세 화면으로 복귀
+
+
+ 🎨 팀별로 수정 가능한 부분: 채팅 말풍선 색상 · 인터뷰 종료 후 화면 처리 · 로딩 애니메이션 스타일
+
+✅ 완료 확인:
+
+☐ 프로필 상세에서 "인터뷰하기" 클릭 시 채팅 화면으로 전환된다
+☐ 페르소나의 첫 인사말이 자동으로 나온다
+☐ 질문 입력 후 전송 시 페르소나가 답변한다
+☐ 이전 대화 내용을 기억하며 답변한다 (히스토리 유지)
+☐ "인터뷰 종료" 버튼이 작동한다
+
+ 🚨 에러 발생 시: 3단계 완성 앱 Remix 링크로 이동
+ https://lovable.dev/projects/e034d3b8-964d-4a5a-afbf-b2654627dbde
+
+
+ 5. 자주 발생하는 에러 및 해결법
+ 에러 1 — "프로필을 찾을 수 없습니다"
+
+ 원인   profiles 테이블의 기본키가 id가 아닌 uuid
+
+ 해결   Lovable에 입력: "상세보기 클릭 시 uuid 기준으로 프로필을 조회해줘"
+
+
+ 에러 2 — Edge Function 401 UNAUTHORIZED
+
+ 원인   Authorization 헤더 누락 또는 형식 오류
+
+ 해결   Lovable에 입력: "Edge Function 호출 Headers에 Authorization: Bearer [Key] 추가"
+
+
+ 에러 3 — 팀 DB에 추가가 안 됨
+
+ 원인   team_profiles 테이블 anon 권한 미설정
+
+ 해결   에러 창의 "Try to fix" 버튼 클릭
+
+
+ 에러 4 — 인터뷰 응답이 매번 같음
+
+ 원인   data.reply 대신 data.message로 읽는 경우
+
+ 해결   "Try to fix" 버튼 클릭 또는 Lovable에: "data.reply로 응답 텍스트를 읽어줘"
+
+
+ 에러 5 — Lovable 크레딧 부족
+
+ 원인   무료 플랜 일일 5 크레딧 소진
+
+ 해결   단계별 완성 앱 Remix 링크 사용 (위 에러 대비 링크 참고)
+
+
+ 6. 인터뷰 실습 가이드 (Mom Test 원칙)
+ ❌ 피해야 할 질문                                        ✅ 좋은 질문
+
+ "이런 앱이 있으면 사용하실 것 같으세요?"                           "최근에 비슷한 문제를 겪으신 적 있으신가요?"
+
+ "얼마나 지불할 의향이 있으신가요?"                              "그 문제를 해결하기 위해 어떻게 하셨나요?"
+
+ "이 기능이 마음에 드세요?"                                  "가장 불편했던 점이 무엇이었나요?"
+
+ → 미래 행동 · 가정 질문 (피하세요)                            → 과거 행동 · 구체적 경험 질문 (권장)
+
+인터뷰 후 팀 토론 체크리스트
+☐ 페르소나가 가진 핵심 문제는 무엇인가?
+☐ 현재 어떤 방식으로 해결하고 있는가?
+☐ 우리 제품/서비스가 이 문제를 해결할 수 있는가?
+☐ 구매 의향이 있어 보이는가? (1~10점)
+☐ 추가로 확인해야 할 내용은?
+
+
+ 7. 과제 안내 — HuggingFace 추가 프로필 검색
+수업 후 팀 프로젝트에 맞는 추가 프로필을 HuggingFace에서 직접 검색해서 팀 DB에 추가해보세요.
+
+HuggingFace Dataset Viewer 사용법
+
+ 1. 브라우저에서 접속:
+    https://huggingface.co/datasets/nvidia/Nemotron-Personas-Korea
+
+ 2. "Dataset Viewer" 탭 클릭
+ 3. 검색/필터 기능으로 원하는 프로필 탐색
+ 4. 마음에 드는 프로필의 uuid 복사
+
+
+ 8. 참고 자료
+기술 스택 공식 문서
+ • Supabase: https://supabase.com/docs
+ • Lovable: https://docs.lovable.dev
+ • Gemini API: https://ai.google.dev/gemini-api/docs
+ • HuggingFace Dataset Viewer: https://huggingface.co/docs/dataset-viewer
+
+데이터셋
+ • Nemotron-Personas-Korea: https://huggingface.co/datasets/nvidia/Nemotron-Personas-Korea
+ • 100만 한국인 프로필 (KOSIS 기반, CC BY 4.0 라이선스)
+
+Linterview 서비스
+ • linterview.kr (준비 중)
+ • Lean Interview — AI 페르소나 고객 개발 인터뷰 도구
+
+
+                                         linterview.kr | Page 8

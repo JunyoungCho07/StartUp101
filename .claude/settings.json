@@ -1,0 +1,67 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(**)",
+      "Bash(find *:*)",
+      "Bash(ls:*)",
+      "Bash(ls *:*)",
+      "Bash(grep *:*)",
+      "Bash(git log*:*)",
+      "Bash(git diff*:*)",
+      "Bash(git status*:*)",
+      "Bash(git add *:*)",
+      "Bash(git commit*:*)",
+      "Bash(wc *:*)",
+      "Bash(head *:*)",
+      "Bash(tail *:*)",
+      "Bash(iconv *:*)",
+      "Bash(python3 *:*)",
+      "Bash(mkdir -p *:*)",
+      "Bash(chmod +x *:*)",
+      "Bash(uv *:*)",
+      "Bash(uvx *:*)"
+    ],
+    "deny": [
+      "Bash(git push*:*)",
+      "Bash(rm -rf*:*)",
+      "Bash(mv *Final_Versions*:*)",
+      "Bash(mv *최종본*:*)",
+      "Bash(pip install*:*)",
+      "Bash(pip3 install*:*)",
+      "Bash(conda install*:*)"
+    ]
+  },
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Write|Edit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/Users/jycho/Developer/StartUp101/.claude/hooks/protect-finals.sh"
+          }
+        ]
+      },
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/Users/jycho/Developer/StartUp101/.claude/hooks/protect-data.sh"
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "Write|Edit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/Users/jycho/Developer/StartUp101/.claude/hooks/audit-changes.sh"
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,344 @@
+SOURCE: Talking to Humans_Customer Discovery 101_NYU_21s (1).pdf
+CHAPTER: Talking to Humans_Customer Discovery 101_NYU_21s
+TOTAL_SLIDES: 21
+PURPOSE: context_injection_for_main_agent
+---
+
+=== SLIDE 1 ===
+TITLE: | |
+
+Talking to Humans:
+Customer
+| |
+Discovery 101
+Frank Rimalovski
+Executive Director, NYU Entrepreneurial Institute
+Managing Director, NYU Innovation Venture Fund
+Adjunct Professor, NYU Polytechnic School of Engineering
+Instructor, National Science Foundation (NSF) I-Corps
+May 13, 2015
+ NYU | Entrepreneurial                                        W @NYUEntrepreneur
+
+=== END ===
+
+=== SLIDE 2 ===
+TITLE: In the beginning...          (J
+
+The Four Steps to
+the Epiphany
+Successful Strategies for
+a    Produces 609 1473 -
+a    fz  me,   4 es
+^ ' — .  < 2. 3                   :
+Te,         ~ ㆍ :
+Steve Blank
+ NYU | fuszovr                        2                     VY envvEntrepreneur
+
+=== END ===
+
+=== SLIDE 3 ===
+TITLE: ㄷ       |    ti
+
+voiution...
+|                       ae THE LEAN            Tue Svarrur
+| Mentumbcticaeetenies Mage                                               OWNER’S MANUAL
+and design tomocraw’s enterprises. t's abook forthe      Pie,      HF      TI                    oR ey. AE
+ined          iNeed                  is                  DS Ae BS
+iness       ~골8         y                     i nese  5
+Model                             “| Building a Great Company
+>, 때 ]떼       「                  28 ah Ms 7 te a
+Ctcation Da fe                         we
+nae]               ye) -        |        ”  ee
+shenaronennie eka                Gy           Continuous Innovation to Create        |      nd glee ERO Neca   :
+o-cREATED BY            EH]    ge            ae    ey                29 EN:
+= —  이 paddle      ;             i ee
+see ome ELS Se el                    노소 은
+C |? SRI AS | eas                ao     "25          TRS br ae Og aa:
+|      PARAS DA Eg St              =a            Ue ig
+Steve Blank and Bob Dorf
+6              Enti       ial
+ NYU | institute                     3                   W @NYUEntrepreneur
+
+=== END ===
+
+=== SLIDE 4 ===
+TITLE: Buzzword (Non)Compliance (J
+
+@ MVP # Product
+
+@ Pivot # Restart
+
+@ Customer Discovery # Selling
+
+ NYU | pewrepreneurial                     4                   W @NYUEntrepreneur
+
+=== END ===
+
+=== SLIDE 5 ===
+TITLE: Customer Discovery        (J
+
+Hypothesis
+Design
+Experiments
+ NYU | Entrepreneurial                     5                   vy @NYUEntrepreneur
+
+=== END ===
+
+=== SLIDE 6 ===
+TITLE: Goals of Customer Discovery   (J
+
+1. (in)validate problem/solution fit
+
+2. (In)validate business model
+component hypotheses
+
+3. Begin to identify & test Minimum
+Viable Product (MVP)
+
+@ NOT to get statistical relevance, but
+pattern recognition to get insight
+
+ NYU | Entrepreneurial                                         vy @NYUEntrepreneur
+
+=== END ===
+
+=== SLIDE 7 ===
+TITLE: SS
+
+Success starts with understanding
+your customers
+Steve Blank
+(7                    Entrepreneurial
+ NYU | 2%           ;         y
+
+=== END ===
+
+=== SLIDE 8 ===
+TITLE: Who do you want to learn from?  (J
+
+HOW WAS THE              GREAT! |LEARNED FROM MY
+CUSTOMER                GRANDMOTHER'S BRIDGE
+INTERVIEW?                     GROUP THAT OUR DATING
+
+APP SHOULD HAVE A
+ROTARY PHONE VERSION.
+ㅡ       = 를 몰
+ㅎㅎ | "6임
+Ba
+ NYU | fsssaorer                     8                   y
+
+=== END ===
+
+=== SLIDE 9 ===
+TITLE: What do you want to learn?   (J
+
+BEFORE WE GET TO OUR RISKY ASSUMPTIONS
+THAT COULD CRATER OUR ENTIRE BUSINESS,
+WHAT DO YOU THINK OF THE FONT COLOR
+ON THIS PACKAGING BURST?
+개                                  4
+a       2
+ NYU | Entrepreneurial                    9                   W @NYUEntrepreneur
+
+=== END ===
+
+=== SLIDE 10 ===
+TITLE: ——기도게고계게게게갤개데개개래2202202202022220
+
+What do  you wa nt to learn‘     (J
+Key           Ra? | Key           ‘4     Value a      “9.     Customer      (6     Customer       >|
+Partners       SS | Activities       A,    Proposition  E) | Relationships Z | Segments        tf
+Key             {“y                          Channels         77
+Resources         ee                                                            UY
+=
+Cost                             =| | Revenue                           ‘a
+Structure                                          & 2    Streams                                            ‘s
+Ent        |
+7  NYU | Institute                   10                  W @NYUEntrepreneur
+
+=== END ===
+
+=== SLIDE 11 ===
+TITLE: What do you want to learn?  (J
+
+@ Do not sell! No demos! No presentations!
+@ Get stories, not speculation
+
+@ Ask open-ended questions
+
+@ Ask why? Then why? They why again!
+ Create a guide (not a script)
+
+ NYU | Entrepreneurial                    N                  vy @NYUEntrepreneur
+
+=== END ===
+
+=== SLIDE 12 ===
+TITLE: How do you find interview subjects?  (J
+
+I'VE BEEN TOLD | NEED TO GET
+CANDID, UNBIASED FEEDBACK          WE LOVE THIS
+ON MY STARTUP IDEA.                    IDEA AND WE'RE
+SO PROUD OF
+\                                   YOU, SON.
+6   a =
+ae %
+889
+ NYU | Entrepreneurial                    12                   vy @NYUEntrepreneur
+
+=== END ===
+
+=== SLIDE 13 ===
+TITLE: How do you find interview subjects?  (J
+
+@ At least one degree of separation '
+
+@ Make referrals happen                aw   |
+.           ~                   “ee A
+
+@ Get creative...recruiting hacks       . ee   ;
+
+@ Fish where the fish are...
+
+IVA,
+
+@ ..in the wild                              Hao
+
+@ Promise to be brief                   bd    |
+
+@ Play the student/researcher card
+
+@ Thoughts on enterprise customers
+
+ NYU | Entrepreneurial                    13                  vy @NYUEntrepreneur
+
+=== END ===
+
+=== SLIDE 14 ===
+TITLE: How to ensure an effective interview?  (J
+
+BE COMPLETELY HONEST AND TELL US WHAT
+
+YOU THINK OF THIS PRODUCT THAT WE'VE
+
+SLAVED OVER NIGHTS AND WEEKENDS
+
+WITHOUT SLEEP OR A SALARY BECAUSE WE
+
+THINK IT’S SUCH A COOL IDEA.
+|            6.
+ys     해
+
+_Y    =   (7
+ NYU | fsssaorer                     "4                   vy
+
+=== END ===
+
+=== SLIDE 15 ===
+TITLE: How to ensure an effective interview?  (J
+
+@ Beware of confirmation bias
+
+@ Do it in person, one at atime
+
+@ Get subjects to tell a story
+
+@ Look for solution hacks
+
+@ Understand their priority
+
+@ Follow your nose & drill down
+
+@ Listen and STFU!
+
+@ Have someone take notes
+
+ NYU | fuer               i              WV @NYUEntrepreneur
+
+=== END ===
+
+=== SLIDE 16 ===
+TITLE: Pro Tips: Students/teams         (J
+
+@ Practice, practice, practice
+
+@ Don’t start with your dream customer
+
+@ Flatter subjects
+
+@ Be transparent
+
+@ Follow up/stay in touch
+
+@ Write up key insights right away
+
+ NYU | Entrepreneurial                    16                   vy @NYUEntrepreneur
+
+=== END ===
+
+=== SLIDE 17 ===
+TITLE: Pro Tips: Instructors/educators ¢/y
+
+@ Do exercises & practice before hand
+@ Hold teams accountable to >100 interviews
+@ Get the class/cohort to help one another
+@ Make them publish interview summaries
+@ Read & critique their summaries
+@ Keep them focused on the problem, not
+the solution
+ NYU | Entrepreneurial                    7                   vy @NYUEntrepreneur
+
+=== END ===
+
+=== SLIDE 18 ===
+TITLE: Resources                (J
+
+TALKING
+TO HUMANS               aa
+talkingtohumans.com        bit.ly/llocdvs
+ NYU | Entrepreneurial                    18                   W @NYUEntrepreneur
+
+=== END ===
+
+=== SLIDE 19 ===
+TITLE: Questions?                                            (J
+
+TALK TO CUSTOMERS?
+WHAT DO CUSTOMERS
+HAVE TO DO WITH THE
+PRODUCTS WE
+EVENTUALLY WANT
+THEM TO BUY?
+Ct              - &      A                 f aaa
+[aa띠
+Une dl | 숍
+yo |  6
+ NYU | Entrepreneurial                    19                   W @NYUEntrepreneur
+
+=== END ===
+
+=== SLIDE 20 ===
+TITLE: Thank you!                             60
+
+@, for4@nyu.edu
+
+G2 @rimalovski
+
+@ nyu.edu/entrepreneur
+
+0 nyuentrepreneur.com
+
+48 16 Washington Place, NYC
+
+ NYU | inet아005배리                    20                   Wi @NYUEntrepreneur
+
+=== END ===
+
+=== SLIDE 21 ===
+TITLE: Entrepreneurial
+
+y  NYU Institute
+Helping startups start up
+vy @NYUEntrepreneur
+
+=== END ===

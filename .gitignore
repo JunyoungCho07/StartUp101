@@ -1,5 +1,44 @@
-# Object file
-*.o
+# ── Claude Code 세션 데이터 ─────────────────────────────────
+.claude/projects/
+.claude/todos/
+.claude/statsig/
+# agents/는 추적 (커스텀 에이전트 정의 파일)
+!.claude/agents/
 
-# Ada Library Information
-*.ali
+# ── LLM 내부 지침 ───────────────────────────────────────────
+**/CLAUDE.md
+
+# ── 내부 도구 폴더 ─────────────────────────────────────────
+_internal/
+
+# ── 대용량 오디오·영상 ──────────────────────────────────────
+*.m4a
+*.mp3
+*.mp4
+*.wav
+*.aac
+*.flac
+
+# ── 문서 바이너리 ──────────────────────────────────────────
+*.pdf
+*.pptx
+*.docx
+*.xlsx
+
+# ── 이미지 (시각화 결과물은 추적) ──────────────────────────
+# research/survey/analysis/visualizations/*.png 는 추적 유지
+
+# ── 원시 설문 데이터 (개인정보 보호) ───────────────────────
+research/survey/raw-data/*.csv
+
+# ── macOS 시스템 파일 ───────────────────────────────────────
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# ── Windows 시스템 파일 ─────────────────────────────────────
+desktop.ini
+Thumbs.db
+
+# ── Office 임시 파일 ────────────────────────────────────────
+~$*
